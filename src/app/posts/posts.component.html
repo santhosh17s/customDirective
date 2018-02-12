@@ -1,0 +1,6 @@
+<div *ngFor="let gp of groupPosts">
+  <h4>{{ gp.category }}</h4>
+<ul>
+  <li *ngFor="let pst of gp.posts"> {{ pst.title }}</li>
+</ul>
+</div>
