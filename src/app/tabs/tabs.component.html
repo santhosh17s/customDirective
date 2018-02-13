@@ -1,6 +1,6 @@
 <h5 appTabName> </h5>
 <ul #tabComp>
-   <!--  <li *ngFor="let ta of tabs" (click)="selectTab(TabComponent)" >{{ ta.tabTitle }}</li> -->
+   <!--  <li *ngFor="let ta of tabs" (click)="selectTab(ta)" >{{ ta.tabTitle }}</li> -->
    <li *ngFor="let tab of tabs" (click)="selectTab(tab)">{{ tab.tabTitle }}</li>
   </ul>
   <ng-content></ng-content>

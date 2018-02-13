@@ -13,7 +13,7 @@ export class TabsComponent implements OnInit, AfterContentInit {
 
   @ViewChild('tabComp') comp: ElementRef; 
 
- @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
+  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
 
   constructor() {
     
@@ -37,7 +37,7 @@ export class TabsComponent implements OnInit, AfterContentInit {
   }
 
   selectTab(tab: TabComponent) {
-    console.log("Tab:" + tab);
+    //console.log("Tab:" + tab);
       this.tabs.toArray().forEach( tab => tab.active = false );
 
       tab.active = true;
