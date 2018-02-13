@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Post } from '../post.interface';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
+
 import { Http } from '@angular/http';
 
 

@@ -9,6 +9,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { PostsComponent } from './posts/posts.component';
 import { BloggerComponent } from './blogger/blogger.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tab/tab.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { BloggerComponent } from './blogger/blogger.component';
     AppComponent,
     AppButtonComponent,
     PostsComponent,
-    BloggerComponent
+    BloggerComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,
