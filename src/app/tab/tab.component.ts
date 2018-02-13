@@ -9,11 +9,11 @@ import { TabsComponent } from '../tabs/tabs.component';
 export class TabComponent implements OnInit {
 
   @Input() tabTitle;
+  @Input() active: boolean = false;
 
-  active: boolean = false;
-
-  constructor(tabs: TabsComponent) {
-    tabs.addTab(this);
+  //tabs: TabsComponent
+  constructor() {
+    //tabs.addTab(this);
    }
 
   ngOnInit() {

@@ -13,7 +13,7 @@ import { Http } from '@angular/http';
 })
 export class BloggerComponent implements OnInit {
 
-  private bloggers: string = "Santhosh";
+  private bloggers: string = "Blogger List";
   private posts: Post[];
   
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 
 @Component({
@@ -6,17 +6,36 @@ import { TabComponent } from '../tab/tab.component';
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.css']
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent implements OnInit, AfterContentInit {
 
   // typescript needs to know what properties will exist on class instances
-  tabs: TabComponent[] = [];
+ // tabs: TabComponent[] = [];
+
+ @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  ngAfterContentInit() {
+
+    let activeTab = this.tabs.filter( (tab) =>  tab.active)
+
+    if(activeTab.length === 0 ) {
+      this.selectTab(this.tabs.first)
+    }
+  }
+
   selectTab(tab: TabComponent) {
+    console.log("Tab:" + tab);
+      this.tabs.toArray().forEach( tab => tab.active = false );
+
+      tab.active = true;
+
+  }
+
+  /* selectTab(tab: TabComponent) {
     this.tabs.forEach((tab) => {
       tab.active = false;
     });
@@ -29,6 +48,6 @@ export class TabsComponent implements OnInit {
       tab.active = true;
     }
     this.tabs.push(tab);
-  }
+  } */
 
 }

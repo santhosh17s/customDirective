@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 
   observar(){
 
-    var click$ = Observable.of("santhosh");
+    var click$ = Observable.of("Hi");
     
     click$.subscribe(map => console.log(map) )
      
