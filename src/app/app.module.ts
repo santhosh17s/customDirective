@@ -11,6 +11,7 @@ import { PostsComponent } from './posts/posts.component';
 import { BloggerComponent } from './blogger/blogger.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
+import { TabNameDirective } from './tab-name.directive';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TabComponent } from './tab/tab.component';
     PostsComponent,
     BloggerComponent,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    TabNameDirective
   ],
   imports: [
     BrowserModule,

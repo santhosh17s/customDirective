@@ -1,4 +1,4 @@
-import { Component, OnInit, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ContentChildren, QueryList, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 
 @Component({
@@ -11,18 +11,27 @@ export class TabsComponent implements OnInit, AfterContentInit {
   // typescript needs to know what properties will exist on class instances
  // tabs: TabComponent[] = [];
 
+  @ViewChild('tabComp') comp: ElementRef; 
+
  @ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
+    this.comp.nativeElement.style.border = '1px solid gray';
+  }
+
+  ngAfterViewInit() {
+    
   }
 
   ngAfterContentInit() {
 
     let activeTab = this.tabs.filter( (tab) =>  tab.active)
 
-    if(activeTab.length === 0 ) {
+    if( activeTab.length === 0 ) {
       this.selectTab(this.tabs.first)
     }
   }
