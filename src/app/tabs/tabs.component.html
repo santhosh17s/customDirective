@@ -1,5 +1,4 @@
 <ul>
-    <li>Tab 1</li>
-    <li>Tab 2</li>
+    <li *ngFor="let ta of tabs" (click)="selectTab(TabComponent)" >{{ ta.tabTitle }}</li>
   </ul>
   <ng-content></ng-content>
