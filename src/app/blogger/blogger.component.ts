@@ -13,8 +13,8 @@ import { Http } from '@angular/http';
 })
 export class BloggerComponent implements OnInit {
 
-  private bloggers: string = "Blogger List";
-  private posts: Post[];
+  bloggers: string = "Blogger List";
+  posts: Post[];
   
 
   constructor(private http: Http) { }

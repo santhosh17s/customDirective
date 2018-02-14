@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  title = 'app';
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  btnParent(info){
+    console.log("Button clicked from parent: " + info);
   }
 
 }
