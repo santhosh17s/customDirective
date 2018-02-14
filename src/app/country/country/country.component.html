@@ -1,0 +1,15 @@
+<div>
+  <h3> POPULATED COUNTRIES </h3>
+  <ul>
+    <li *ngFor="let pc of populatedCountries" > 
+      <p><a href="" routerLink="/detail/{{pc.name}}">{{ pc.name }} - {{pc.population | number}}</a></p>
+    </li>
+  </ul>
+  </div>
+
+  <div>
+      <h4> LARGEST COUNTRIES </h4>
+      <ul>
+        <li *ngFor="let lc of largestCountries"> {{ lc.name }} </li>
+      </ul>
+      </div>  

@@ -26,7 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as FusionCharts from 'fusioncharts';  
 import * as Charts from 'fusioncharts/fusioncharts.charts';  
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';  
-import { FusionChartsModule } from 'angular4-fusioncharts';  
+import { FusionChartsModule } from 'angular4-fusioncharts';
+import { CountryComponent } from './country/country/country.component';  
+import { CountryService } from './country/country.service';
+import { CountryDetailComponent } from './country/country-detail/country-detail.component';
 
 
 
@@ -41,7 +44,9 @@ import { FusionChartsModule } from 'angular4-fusioncharts';
     TabNameDirective,
     HomeComponent,
     TabCompComponent,
-    ChartComponent
+    ChartComponent,
+    CountryComponent,
+    CountryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,7 @@ import { FusionChartsModule } from 'angular4-fusioncharts';
     MatButtonModule, 
     MatMenuModule
   ],
-  providers: [],
+  providers: [ CountryService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

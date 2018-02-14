@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { BloggerComponent } from './blogger/blogger.component';
 import { TabCompComponent } from './tab-comp/tab-comp.component';
 import { ChartComponent } from './chart/chart.component';
+import { CountryComponent } from './country/country/country.component';
+import { CountryDetailComponent } from './country/country-detail/country-detail.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path:'blogger', component: BloggerComponent },
   { path:'tab', component: TabCompComponent },
   { path:'chart', component: ChartComponent },
+  { path:'country', component: CountryComponent },
+  { path:'detail/:name', component: CountryDetailComponent },
   { path:'', redirectTo:'home', pathMatch:'full' }
 ];
 
