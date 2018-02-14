@@ -12,6 +12,22 @@ import { BloggerComponent } from './blogger/blogger.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tab/tab.component';
 import { TabNameDirective } from './tab-name.directive';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TabCompComponent } from './tab-comp/tab-comp.component';
+import { ChartComponent } from './chart/chart.component';
+
+// To use Material Component  
+import { MatCardModule, MatToolbarModule, MatToolbar, MatButtonModule, MatButton, MatMenuModule } from '@angular/material';  
+// To use Animations  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+
+// For FusionChart   
+import * as FusionCharts from 'fusioncharts';  
+import * as Charts from 'fusioncharts/fusioncharts.charts';  
+import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';  
+import { FusionChartsModule } from 'angular4-fusioncharts';  
+
 
 
 @NgModule({
@@ -22,12 +38,21 @@ import { TabNameDirective } from './tab-name.directive';
     BloggerComponent,
     TabsComponent,
     TabComponent,
-    TabNameDirective
+    TabNameDirective,
+    HomeComponent,
+    TabCompComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
+    FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
+    MatToolbarModule,
+    MatButtonModule, 
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

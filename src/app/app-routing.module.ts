@@ -2,9 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppButtonComponent } from './component/app-button/app-button.component';
 import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './home/home.component';
+import { BloggerComponent } from './blogger/blogger.component';
+import { TabCompComponent } from './tab-comp/tab-comp.component';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
-  { path:'button', component: AppButtonComponent, canActivate:[AuthGuard] }
+  { path:'home', component: HomeComponent },
+  { path:'button', component: AppButtonComponent, canActivate:[AuthGuard] },
+  { path:'blogger', component: BloggerComponent },
+  { path:'tab', component: TabCompComponent },
+  { path:'chart', component: ChartComponent },
+  { path:'', redirectTo:'home', pathMatch:'full' }
 ];
 
 @NgModule({
