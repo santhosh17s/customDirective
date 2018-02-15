@@ -1,28 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="accent">
-    <span>Material - Chart</span>  
-    <button mat-button [matMenuTriggerFor]="menu">Select Charts From Below Menu</button>  
-    <mat-menu #menu="matMenu">  
-        <button [routerLink]="['/Bar']" mat-menu-item>Bar Chart</button>  
-        <button [routerLink]="['/Pie']" mat-menu-item>Pie Chart</button>  
-        <button [routerLink]="['/Column']" mat-menu-item>Column Chart</button>  
-        <button [routerLink]="['/Line']" mat-menu-item>Line Chart</button>  
-        <button [routerLink]="['/Doughunt']" mat-menu-item>DougHunt Chart</button>  
-        <button [routerLink]="['/Bubble']" mat-menu-item>Bubble Chart</button>  
-        <button [routerLink]="['/Mixed']" mat-menu-item>Mixed Chart</button>  
-    </mat-menu>  
-  <nav>
-    <ul>
-      <li><a href="" routerLink="home">Home</a></li>
-      <li><a href="" routerLink="tab">Tab</a></li>
-      <li><a href="" routerLink="blogger">Blogger</a></li>
-      <li><a href="" routerLink="chart">Chart</a></li>
-      <li><a href="" routerLink="country">Country</a></li>
-    </ul>
-  </nav>
+
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>MyMaterial</span>
+
+    <span class="example-spacer"></span>
+    
+    <button routerLink="home" mat-button>Home</button>
+    <button  routerLink="tab" mat-button>Tab</button>
+    <button routerLink="blogger" mat-button>Blogger</button>
+    <button routerLink="chart" mat-button>Chart</button>
+    <button routerLink="country" mat-button >Country</button>
+  </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-sidenav-container>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</mat-sidenav-container>
 
-<router-outlet></router-outlet>
+
 
 

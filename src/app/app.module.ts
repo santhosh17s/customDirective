@@ -17,8 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TabCompComponent } from './tab-comp/tab-comp.component';
 import { ChartComponent } from './chart/chart.component';
 
-// To use Material Component  
-import { MatCardModule, MatToolbarModule, MatToolbar, MatButtonModule, MatButton, MatMenuModule } from '@angular/material';  
+import { MyMaterialModule } from './my-material.module';
 // To use Animations  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 
@@ -55,9 +54,7 @@ import { CountryDetailComponent } from './country/country-detail/country-detail.
     HttpModule,
     AppRoutingModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
-    MatToolbarModule,
-    MatButtonModule, 
-    MatMenuModule
+    MyMaterialModule
   ],
   providers: [ CountryService ],
   bootstrap: [AppComponent]
