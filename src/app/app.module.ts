@@ -29,6 +29,8 @@ import { FusionChartsModule } from 'angular4-fusioncharts';
 import { CountryComponent } from './country/country/country.component';  
 import { CountryService } from './country/country.service';
 import { CountryDetailComponent } from './country/country-detail/country-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignupService } from './signup.service';
 
 
 
@@ -53,10 +55,11 @@ import { CountryDetailComponent } from './country/country-detail/country-detail.
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     HttpModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
     MyMaterialModule
   ],
-  providers: [ CountryService ],
+  providers: [ CountryService, SignupService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,12 +8,14 @@ import { MatSidenavModule, MatCardModule, MatToolbarModule, MatToolbar, MatButto
 @NgModule({
     imports: [ 
         MatSidenavModule,
+        MatCardModule,
         MatToolbarModule,
         MatButtonModule, 
         MatMenuModule
     ],
     exports: [ 
         MatSidenavModule,
+        MatCardModule,
         MatToolbarModule,
         MatButtonModule, 
         MatMenuModule

@@ -1,15 +1,46 @@
 
-<div style="text-align:center">
-  <h4>
-    Welcome to {{ title }}!
-  </h4>
- </div>
 
- <label for="">Sex</label><br>
- <label for="male">male</label>
- <input id="male" type="radio" name="sex"><br>
- <label for="female">female</label>
- <input id="female" type="radio" name="sex"><br>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Angular</mat-card-title>
+    <mat-card-subtitle>Material 2</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
 
- <app-button type="secondary" (info)="btnParent($event)">Add Button Class</app-button>
- <!--  <button (click)="observar()">Observable Button</button> -->
+    <p>
+      Material Design components for Angular
+    </p>
+
+    <div style="text-align:center">
+      <h4>
+        Welcome to {{ title }}!
+      </h4>
+     </div>
+    
+     <label for="">Sex</label><br>
+     <label for="male">male</label>
+     <input id="male" type="radio" name="sex"><br>
+     <label for="female">female</label>
+     <input id="female" type="radio" name="sex"><br>
+    
+     <app-button type="secondary" (info)="btnParent($event)">Add Button Class</app-button>
+     <!--  <button (click)="observar()">Observable Button</button> -->
+
+      <h4>ASYNC VALIDATOR</h4>
+      <form [formGroup]="nameForm" novalidate (ngSubmit)="userLogin()">
+        <label for="name">User Name
+        <input id="name" type="text" formControlName="username"  class="form-control"></label><br> 
+        <div *ngIf="nameForm.controls['username'].valid"><p>Username is Available</p></div> <br>
+        
+        <input type="submit" [disabled]="!nameForm.valid" value="Check Name">
+      </form>
+      <p>Form value: {{ nameForm.value | json }}</p>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
