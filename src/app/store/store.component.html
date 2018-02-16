@@ -8,12 +8,14 @@
 
 
 <hr>
-<h3>{{title$ | async}}</h3>
-<p>Votes: {{voteCount$ | async}}</p>
 
-<button  mat-raised-button (click)="upvote()" color="primary">Upvote</button>
-<button  mat-raised-button (click)="downvote()" color="primary">Downvote</button>
-<button  mat-raised-button (click)="votereset()" color="primary">Reset</button>
+<div *ngIf="post$ | async as post">
+    <h3>{{ post.title }}</h3>
+    <p>Votes: {{ post.likes }}</p>
 
+    <button  mat-raised-button (click)="upvote()" color="primary">Upvote</button>
+    <button  mat-raised-button (click)="downvote()" color="primary">Downvote</button>
+    <button  mat-raised-button (click)="votereset()" color="primary">Reset</button>
+</div>
 
 </mat-card>

@@ -38,6 +38,7 @@ import { CountryDetailComponent } from './country/country-detail/country-detail.
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './signup.service';
 import { StoreComponent } from './store/store.component';
+import { PostReducer } from './reducers/post.reducer';
 
 
 
@@ -66,7 +67,10 @@ import { StoreComponent } from './store/store.component';
     ReactiveFormsModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
     MyMaterialModule,
-    StoreModule.forRoot({message: messageReducer}),
+    StoreModule.forRoot({
+      message: messageReducer,
+      post: PostReducer
+      }),
     StoreDevtoolsModule.instrument({
       maxAge: 10,
       logOnly: environment.production

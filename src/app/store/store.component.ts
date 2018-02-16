@@ -3,8 +3,17 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { TAMIL, HINDI, ENGLISH } from './messageReducer';
 
-export interface AppState {
+import { Post } from '../models/post.model';
+import * as PostAction from '../action/post.action';
+
+//STRING MESSAGE DISPLAY
+/* export interface AppState {
   message: string;
+} */
+
+//POST INTERFACE
+interface AppState {
+  post: Post;
 }
 
 @Component({
@@ -15,14 +24,16 @@ export interface AppState {
 export class StoreComponent implements OnInit {
 
   message$: Observable<string>;
-  title$: Observable<string>;
-  voteCount$: Observable<number>;
+
+  post$ : Observable<Post>;
   
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
 
-      this.message$ = this.store.pipe(select('message'));
+      //this.message$ = this.store.pipe(select('message'));
+     
+      this.post$ = this.store.pipe(select('post'));
 
   }
 
@@ -38,13 +49,15 @@ export class StoreComponent implements OnInit {
   }
 
   upvote(){
-
+    this.store.dispatch(new PostAction.Upvote() );
   }
 
-  downvote(){}
+  downvote(){
+    this.store.dispatch(new PostAction.Downvote());
+  }
 
   votereset(){
-
+      this.store.dispatch(new PostAction.Reset());
   }
 
 }
