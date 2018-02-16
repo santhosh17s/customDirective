@@ -8,6 +8,7 @@ import { TabCompComponent } from './tab-comp/tab-comp.component';
 import { ChartComponent } from './chart/chart.component';
 import { CountryComponent } from './country/country/country.component';
 import { CountryDetailComponent } from './country/country-detail/country-detail.component';
+import { StoreComponent } from './store/store.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path:'chart', component: ChartComponent },
   { path:'country', component: CountryComponent },
   { path:'detail/:name', component: CountryDetailComponent },
+  { path:'store', component: StoreComponent },
   { path:'', redirectTo:'home', pathMatch:'full' }
 ];
 

@@ -21,6 +21,12 @@ import { MyMaterialModule } from './my-material.module';
 // To use Animations  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 
+
+//NGRX STORE MODULE
+import { StoreModule } from '@ngrx/store';
+import { messageReducer } from './store/messageReducer';
+import { StoreDevtoolsModule, StoreDevtools } from '@ngrx/store-devtools';
+
 // For FusionChart   
 import * as FusionCharts from 'fusioncharts';  
 import * as Charts from 'fusioncharts/fusioncharts.charts';  
@@ -31,6 +37,7 @@ import { CountryService } from './country/country.service';
 import { CountryDetailComponent } from './country/country-detail/country-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './signup.service';
+import { StoreComponent } from './store/store.component';
 
 
 
@@ -47,7 +54,8 @@ import { SignupService } from './signup.service';
     TabCompComponent,
     ChartComponent,
     CountryComponent,
-    CountryDetailComponent
+    CountryDetailComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +65,12 @@ import { SignupService } from './signup.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
-    MyMaterialModule
+    MyMaterialModule,
+    StoreModule.forRoot({'message': messageReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10,
+      logOnly: environment.production
+    })
   ],
   providers: [ CountryService, SignupService ],
   bootstrap: [AppComponent]
