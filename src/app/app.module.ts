@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //NGRX STORE MODULE
 import { StoreModule } from '@ngrx/store';
 import { messageReducer } from './store/messageReducer';
-import { StoreDevtoolsModule, StoreDevtools } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 // For FusionChart   
 import * as FusionCharts from 'fusioncharts';  
@@ -66,7 +66,7 @@ import { StoreComponent } from './store/store.component';
     ReactiveFormsModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
     MyMaterialModule,
-    StoreModule.forRoot({'message': messageReducer}),
+    StoreModule.forRoot({message: messageReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 10,
       logOnly: environment.production

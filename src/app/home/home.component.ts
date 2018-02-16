@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { SignupService } from '../signup.service';
+import { Observable } from 'rxjs/Observable';
+import { Store, select } from '@ngrx/store';
+
+export interface AppState{
+  message: string
+}
 
 @Component({
   selector: 'app-home',
@@ -10,10 +16,11 @@ import { SignupService } from '../signup.service';
 export class HomeComponent implements OnInit {
 
   title = 'app';
+  message$: Observable<string>;
 
   nameForm: FormGroup;
   
-  constructor(private fb: FormBuilder, private singup:SignupService) { }
+  constructor(private fb: FormBuilder, private singup:SignupService, private store:Store<AppState>) { }
 
   ngOnInit() {
 
@@ -27,6 +34,9 @@ export class HomeComponent implements OnInit {
 
     //using SetValue to set form values from server
     //this.nameForm.setValue({username:'Santhosh'});
+  
+    //STORE - CURRENT STATE 
+    this.message$ = this.store.pipe(select('message'));
   }
 
   validateUsernameNotTaken(control: AbstractControl){

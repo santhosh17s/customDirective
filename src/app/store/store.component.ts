@@ -15,6 +15,8 @@ export interface AppState {
 export class StoreComponent implements OnInit {
 
   message$: Observable<string>;
+  title$: Observable<string>;
+  voteCount$: Observable<number>;
   
   constructor(private store: Store<AppState>) { }
 
@@ -33,6 +35,16 @@ export class StoreComponent implements OnInit {
 
   englishLang(){
     this.store.dispatch({type: ENGLISH });
+  }
+
+  upvote(){
+
+  }
+
+  downvote(){}
+
+  votereset(){
+
   }
 
 }

@@ -6,4 +6,14 @@
 <button  mat-raised-button (click)="hindiLang()" color="primary"> Hindi </button>
 <button  mat-raised-button (click)="englishLang()" color="primary"> English </button>
 
+
+<hr>
+<h3>{{title$ | async}}</h3>
+<p>Votes: {{voteCount$ | async}}</p>
+
+<button  mat-raised-button (click)="upvote()" color="primary">Upvote</button>
+<button  mat-raised-button (click)="downvote()" color="primary">Downvote</button>
+<button  mat-raised-button (click)="votereset()" color="primary">Reset</button>
+
+
 </mat-card>
