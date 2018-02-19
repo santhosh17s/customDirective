@@ -9,6 +9,7 @@ import { ChartComponent } from './chart/chart.component';
 import { CountryComponent } from './country/country/country.component';
 import { CountryDetailComponent } from './country/country-detail/country-detail.component';
 import { StoreComponent } from './store/store.component';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path:'country', component: CountryComponent },
   { path:'detail/:name', component: CountryDetailComponent },
   { path:'store', component: StoreComponent },
+  { path:'article', component: ArticleComponent },
   { path:'', redirectTo:'home', pathMatch:'full' }
 ];
 

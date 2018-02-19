@@ -21,24 +21,33 @@
      <h3>STORE MESSAGE:</h3>
       <P>{{ message$ | async }}</P>
     
-     <label for="">Sex</label><br>
-     <label for="male">male</label>
-     <input id="male" type="radio" name="sex"><br>
-     <label for="female">female</label>
-     <input id="female" type="radio" name="sex"><br>
-    
+      <hr>
+      <form  [formGroup]="showMeForm" (ngSubmit)="showMe(showMeForm)" novalidate>
+        <label for="">Sex</label><br>
+        <label for="male">male</label>
+        <input id="male" type="radio" value="male" formControlName="gender"><br>
+        <label for="female">female</label>
+        <input id="female" type="radio" value="female" formControlName="gender"><br>
+
+        <label for="married">Married
+        <input id="married" type="checkbox" value="" formControlName="isMarried" />
+        </label>
+        <input type="submit" value="Show Me">
+    </form>
+    <hr />
+
      <app-button type="secondary" (info)="btnParent($event)">Add Button Class</app-button>
      <!--  <button (click)="observar()">Observable Button</button> -->
 
       <h4>ASYNC VALIDATOR</h4>
-      <form [formGroup]="nameForm" novalidate (ngSubmit)="userLogin()">
+       <form [formGroup]="nameForm" novalidate (ngSubmit)="userLogin()">
         <label for="name">User Name
         <input id="name" type="text" formControlName="username"  class="form-control"></label><br> 
         <div *ngIf="nameForm.controls['username'].valid"><p>Username is Available</p></div> <br>
         
         <input type="submit" [disabled]="!nameForm.valid" value="Check Name">
       </form>
-      <p>Form value: {{ nameForm.value | json }}</p>
+      <p>Form value: {{ nameForm.value | json }}</p> 
 
   </mat-card-content>
   <mat-card-actions>

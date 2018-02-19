@@ -27,6 +27,13 @@ import { StoreModule } from '@ngrx/store';
 import { messageReducer } from './store/messageReducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+//NGRX/EFFECTS
+import { EffectsModule } from '@ngrx/effects';
+import { MainEffects } from './effects/Main.effects';
+
+//To fetch JSON data to test application
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 // For FusionChart   
 import * as FusionCharts from 'fusioncharts';  
 import * as Charts from 'fusioncharts/fusioncharts.charts';  
@@ -39,6 +46,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './signup.service';
 import { StoreComponent } from './store/store.component';
 import { PostReducer } from './reducers/post.reducer';
+import { ArticleComponent } from './article/article.component';
+import { ArticleReducer } from './reducers/article.reducer';
+import { ArticleEffects } from './effects/article.effects';
+import { TestData } from './models/test-data';
 
 
 
@@ -56,7 +67,8 @@ import { PostReducer } from './reducers/post.reducer';
     ChartComponent,
     CountryComponent,
     CountryDetailComponent,
-    StoreComponent
+    StoreComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +83,14 @@ import { PostReducer } from './reducers/post.reducer';
       message: messageReducer,
       post: PostReducer
       }),
+   // StoreModule.forRoot(ArticleReducer),  
+    EffectsModule.forRoot([MainEffects, ArticleEffects]),  
     StoreDevtoolsModule.instrument({
       maxAge: 10,
       logOnly: environment.production
-    })
+    }),
+    InMemoryWebApiModule.forRoot(TestData)
+
   ],
   providers: [ CountryService, SignupService ],
   bootstrap: [AppComponent]

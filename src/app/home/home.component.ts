@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   message$: Observable<string>;
 
   nameForm: FormGroup;
+  showMeForm:FormGroup;
   
   constructor(private fb: FormBuilder, private singup:SignupService, private store:Store<AppState>) { }
 
@@ -30,13 +31,24 @@ export class HomeComponent implements OnInit {
     this.nameForm = this.fb.group({
       //username:new FormControl('', [Validators.required])
       username:['', [Validators.required], [this.validateUsernameNotTaken.bind(this)] ]
-    })
+      
+    });
+
+
+    this.showMeForm = this.fb.group({
+      gender: 'female',
+      isMarried: false
+    });
 
     //using SetValue to set form values from server
     //this.nameForm.setValue({username:'Santhosh'});
   
     //STORE - CURRENT STATE 
     this.message$ = this.store.pipe(select('message'));
+  }
+
+  showMe(showMeForm){
+    console.log("ShowMe", showMeForm.value);
   }
 
   validateUsernameNotTaken(control: AbstractControl){

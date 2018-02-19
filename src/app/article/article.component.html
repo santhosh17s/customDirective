@@ -1,0 +1,21 @@
+
+<mat-card class="example-card">
+        <mat-card-content>
+
+<button mat-button (click)="loadAllArticles()">Show All Articles</button>
+<button mat-button (click)="createArticleView()">Create Article</button>
+<button mat-button (click)="getArticleByIdView()">Search Article By Id</button>
+
+<div [ngSwitch]="task">
+
+  <ng-template [ngSwitchCase]="'all'">
+    <ul>
+      <li *ngFor="let article of articles$ | async">
+        {{article.id}} - {{article.title}} -{{article.category}}
+      </li>
+    </ul>
+  </ng-template>
+
+</div>
+</mat-card-content>
+</mat-card>
