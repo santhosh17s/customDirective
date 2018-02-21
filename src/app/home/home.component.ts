@@ -3,6 +3,10 @@ import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from
 import { SignupService } from '../signup.service';
 import { Observable } from 'rxjs/Observable';
 import { Store, select } from '@ngrx/store';
+import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import { saveAs } from 'file-saver/FileSaver';
 
 export interface AppState{
   message: string
@@ -20,8 +24,13 @@ export class HomeComponent implements OnInit {
 
   nameForm: FormGroup;
   showMeForm:FormGroup;
+
+  options = {
+    resizable: false,
+    draggable: true
+  }
   
-  constructor(private fb: FormBuilder, private singup:SignupService, private store:Store<AppState>) { }
+  constructor(private fb: FormBuilder, private singup:SignupService, private store:Store<AppState>, private http: Http) { }
 
   ngOnInit() {
 
@@ -66,5 +75,23 @@ export class HomeComponent implements OnInit {
   userLogin(){
     console.log("User Login:" + this.nameForm.value );
   }
+
+  saveFile(){
+    /* const headers = new Headers();
+    headers.append('Accept', 'text/plain');
+    this.http.get('api/files', {headers: headers})
+    .toPromise()
+    .then( response => this.saveToFileSystem(response)); */
+
+  }
+
+  saveToFileSytem(output){
+
+  }
+
+  UpdateValue() {
+    this.options.resizable = true;
+  }
+
 
 }

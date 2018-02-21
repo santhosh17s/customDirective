@@ -50,6 +50,7 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleReducer } from './reducers/article.reducer';
 import { ArticleEffects } from './effects/article.effects';
 import { TestData } from './models/test-data';
+import { MyComponentComponent } from './component/my-component/my-component.component';
 
 
 
@@ -68,7 +69,8 @@ import { TestData } from './models/test-data';
     CountryComponent,
     CountryDetailComponent,
     StoreComponent,
-    ArticleComponent
+    ArticleComponent,
+    MyComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -84,12 +86,12 @@ import { TestData } from './models/test-data';
       post: PostReducer
       }),
    // StoreModule.forRoot(ArticleReducer),  
-    EffectsModule.forRoot([MainEffects, ArticleEffects]),  
+    //EffectsModule.forRoot([MainEffects, ArticleEffects]),  
     StoreDevtoolsModule.instrument({
       maxAge: 10,
       logOnly: environment.production
-    }),
-    InMemoryWebApiModule.forRoot(TestData)
+    })
+   // InMemoryWebApiModule.forRoot(TestData)
 
   ],
   providers: [ CountryService, SignupService ],
