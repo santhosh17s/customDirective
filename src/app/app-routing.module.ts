@@ -10,9 +10,11 @@ import { CountryComponent } from './country/country/country.component';
 import { CountryDetailComponent } from './country/country-detail/country-detail.component';
 import { StoreComponent } from './store/store.component';
 import { ArticleComponent } from './article/article.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent },
+  { path:'form', component: FormComponent },
   { path:'button', component: AppButtonComponent, canActivate:[AuthGuard] },
   { path:'blogger', component: BloggerComponent },
   { path:'tab', component: TabCompComponent },

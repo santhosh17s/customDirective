@@ -42,7 +42,7 @@ import { FusionChartsModule } from 'angular4-fusioncharts';
 import { CountryComponent } from './country/country/country.component';  
 import { CountryService } from './country/country.service';
 import { CountryDetailComponent } from './country/country-detail/country-detail.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SignupService } from './signup.service';
 import { StoreComponent } from './store/store.component';
 import { PostReducer } from './reducers/post.reducer';
@@ -51,6 +51,8 @@ import { ArticleReducer } from './reducers/article.reducer';
 import { ArticleEffects } from './effects/article.effects';
 import { TestData } from './models/test-data';
 import { MyComponentComponent } from './component/my-component/my-component.component';
+import { FormComponent } from './form/form.component';
+import { SubmitIfValidDirective } from './form/submit-if-valid.directive';
 
 
 
@@ -70,7 +72,9 @@ import { MyComponentComponent } from './component/my-component/my-component.comp
     CountryDetailComponent,
     StoreComponent,
     ArticleComponent,
-    MyComponentComponent
+    MyComponentComponent,
+    FormComponent,
+    SubmitIfValidDirective
   ],
   imports: [
     BrowserModule,
@@ -78,6 +82,7 @@ import { MyComponentComponent } from './component/my-component/my-component.comp
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     HttpModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     FusionChartsModule.forRoot(FusionCharts, Charts, FintTheme),
     MyMaterialModule,

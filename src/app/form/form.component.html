@@ -1,0 +1,14 @@
+<h2>FORM VALIDATION</h2>
+<form #formRef="ngForm">
+  <label for="">Name</label>
+  <input type="text" [(ngModel)]="name" name="name" #nameRef="ngModel" required>
+  <br>
+  <p *ngIf="nameRef.dirty && nameRef.errors?.required">this field is required</p>
+  <br />
+  <label for="">City</label>
+  <input type="text" [(ngModel)]="city" name="city" #cityRef="ngModel" required><br>
+  <p *ngIf="cityRef.dirty && cityRef.errors?.required">this field is required</p><br>
+  <button (tsSubmitIfValid)="send()">SEND</button>
+</form>
+
+<p class="help is-success">{{success}}</p>
